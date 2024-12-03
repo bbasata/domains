@@ -21,21 +21,21 @@ variable "public_ipv4_address" {
 }
 
 resource "dnsimple_domain" "example" {
-  name = "${var.domain_name}"
+  name = var.domain_name
 }
 
 resource "dnsimple_zone_record" "root" {
-  zone_name = "${dnsimple_domain.example.name}"
-  name = ""
-  value = "${var.public_ipv4_address}"
-  type = "A"
-  ttl = 3600
+  zone_name = dnsimple_domain.example.name
+  name      = ""
+  value     = var.public_ipv4_address
+  type      = "A"
+  ttl       = 3600
 }
 
 resource "dnsimple_zone_record" "www" {
-  zone_name = "${dnsimple_domain.example.name}"
-  name = "www"
-  value = "${var.public_ipv4_address}"
-  type = "A"
-  ttl = 3600
+  zone_name = dnsimple_domain.example.name
+  name      = "www"
+  value     = var.public_ipv4_address
+  type      = "A"
+  ttl       = 3600
 }
