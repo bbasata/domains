@@ -39,3 +39,11 @@ resource "dnsimple_zone_record" "www" {
   type      = "A"
   ttl       = 3600
 }
+
+resource "dnsimple_zone_record" "wwwwww" {
+  zone_name = dnsimple_domain.example.name
+  name      = "wwwwww"
+  value     = var.public_ipv4_address
+  type      = "A"
+  ttl       = 3600
+}

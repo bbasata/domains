@@ -16,5 +16,5 @@ clean:
 apply:
 	envchain dnsimple terraform apply -auto-approve .terraform/plan
 
-destroy: clean
+destroy:
 	envchain dnsimple terraform destroy -auto-approve
